@@ -23,6 +23,11 @@
                 <to>/tagnotifications/index/</to>
             </openstream_tagnotifications_index>
         </rewrite>
+		<helpers>
+			<tagnotifications>
+				<class>Openstream_TagNotifications_Helper</class>
+			</tagnotifications>
+		</helpers>
 		<resources>
 			<tagnotifications_setup>
 				<setup>
