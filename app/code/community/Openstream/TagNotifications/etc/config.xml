@@ -2,27 +2,10 @@
 <config>
 	<modules>
 		<Openstream_TagNotifications>
-			<version>0.1.0</version>
+			<version>0.2.0</version>
 		</Openstream_TagNotifications>
 	</modules>
-    <frontend>
-        <routers>
-            <tag>
-                <args>
-                    <modules>
-                        <Openstream_TagNotifications before="Mage_Tag">Openstream_TagNotifications</Openstream_TagNotifications>
-                    </modules>
-                </args>
-            </tag>
-        </routers>
-    </frontend>
     <global>
-        <rewrite>
-            <openstream_tagnotifications_index>
-                <from><![CDATA[#^tag/index/#]]></from>
-                <to>/tagnotifications/index/</to>
-            </openstream_tagnotifications_index>
-        </rewrite>
 		<helpers>
 			<tagnotifications>
 				<class>Openstream_TagNotifications_Helper</class>
@@ -48,4 +31,17 @@
 			</email>
 		</template>
 	</global>
+    <frontend>
+    	<events>
+			<tag_save_before>
+				<observers>
+					<openstream_tagnotifications_observer>
+						<type>singleton</type>
+						<class>Openstream_TagNotifications_Model_Observer</class>
+						<method>sendNewTagsNotification</method>
+					</openstream_tagnotifications_observer>
+				</observers>
+			</tag_save_before>
+		</events>
+    </frontend>
 </config>
