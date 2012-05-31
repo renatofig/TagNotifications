@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Openstream_TagNotifications>
-			<version>0.2.0</version>
+			<version>0.2.1</version>
 		</Openstream_TagNotifications>
 	</modules>
     <global>
@@ -11,20 +11,10 @@
 				<class>Openstream_TagNotifications_Helper</class>
 			</tagnotifications>
 		</helpers>
-		<resources>
-			<tagnotifications_setup>
-				<setup>
-					<module>Openstream_TagNotifications</module>
-				</setup>
-				<connection>
-                    <use>core_setup</use>
-                </connection>
-			</tagnotifications_setup>
-		</resources>
 		<template>
 			<email>
 				<tagnotifications_admin_notification_email_template translate="label" module="tagnotifications">
-					<label>New tag admin notification</label>
+					<label>New tag notification (admin)</label>
 					<file>tagnotifications_admin_notification_template.html</file>
 					<type>html</type>
 				</tagnotifications_admin_notification_email_template>
